@@ -50,7 +50,7 @@ const App = () => {
         setIsUnlocking(false);
         setPasscode('');
         setStage(2);
-      }, 1600);
+      }, 2400);
     } else {
       setError('Sly fox... Wait for the flowers, then ask me for the code!');
     }
