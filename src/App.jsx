@@ -1,22 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
-// import flower1 from './assets/flower1.jpg';
-// import flower2 from './assets/flower2.jpg';
-// import mystery1 from './assets/mystery1.jpg';
-// import mystery2 from './assets/mystery2.jpg';
-// Optional: import nickAndJudy from './assets/zootopia.gif';
+import cutePhoto from './assets/cute.jpeg';
+import flowerPhoto from './assets/flower-pic2.jpeg';
+import smilePhoto from './assets/smile.jpeg';
 
 const SECRET_CODE = 'whimsical';
 
 const memoryMoments = [
   {
-    title: 'The first "why me?"',
-    body: 'Because even a normal conversation with you somehow starts feeling like my favorite part of the day.',
+    title: 'The first video call',
+    body: 'That first call made the distance feel smaller in the sweetest way. It felt like my day had quietly found its favorite place.',
   },
   {
-    title: 'The hospital-shift check-ins',
-    body: 'You can be tired beyond words and still stay gentle. I notice that more than you know.',
+    title: 'The drunk ride home',
+    body: 'When you were coming back after hanging out with your friends, a little tipsy and completely adorable, I remember smiling at my screen like an idiot.',
   },
   {
     title: 'The sleepy video calls',
@@ -34,6 +32,10 @@ const App = () => {
   const [passcode, setPasscode] = useState('');
   const [error, setError] = useState('');
   const [isUnlocking, setIsUnlocking] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, [stage]);
 
   const nextStage = () => setStage((currentStage) => currentStage + 1);
 
@@ -56,44 +58,47 @@ const App = () => {
 
   return (
     <div className="app-container">
+      <div className="ambient-sparkles" aria-hidden="true">
+        <span>&#9825;</span>
+        <span>&#10022;</span>
+        <span>&#9825;</span>
+        <span>&#10022;</span>
+        <span>&#9825;</span>
+      </div>
+
       {/* STAGE 0: Landing */}
       {stage === 0 && (
         <div className="stage-container">
           <h1>
-            Happy Birthday, Shri <span aria-hidden="true">&#128048;&#129365;</span>
+            Happy Birthday, Shri <span aria-hidden="true">&#10024;</span>
           </h1>
           <p className="subtitle">I have a few things for you today...</p>
           <button className="next-button nick-btn" onClick={nextStage}>Begin &#129418;</button>
         </div>
       )}
 
-      {/* STAGE 1: Flowers & Live Tracking */}
+      {/* STAGE 1: Soft Opener & Live Tracking */}
       {stage === 1 && (
         <div className="stage-container">
-          <h2>Part I: The Flowers &#127800;</h2>
-
-          <div className="photo-gallery">
-            <div className="photo-slot">
-              {/* <img src={flower1} alt="Flowers" /> */}
-              [Flower Photo 1]
-            </div>
-            <div className="photo-slot">
-              {/* <img src={flower2} alt="Flowers" /> */}
-              [Flower Photo 2]
-            </div>
-          </div>
+          <h2>{showWoltTracking ? 'Part I: The Flowers' : 'Part I: Before the Surprise'}</h2>
 
           {!showWoltTracking ? (
             <div className="wolt-teaser">
-              <p>Since I can't be in Georgia to hand these to you myself today...</p>
-              <p>Someone else is bringing them right now. &#128062;</p>
+              <div className="opening-photo">
+                <img src={cutePhoto} alt="Shri enjoying the snow" />
+              </div>
+              <p className="opening-note">Just a tiny pause for this soft little moment.</p>
+              <p>The real birthday surprise is still on its way. &#128062;</p>
               <button className="action-button judy-btn" onClick={() => setShowWoltTracking(true)}>
-                Reveal Tracking &#128048;
+                Reveal Delivery &#128048;
               </button>
             </div>
           ) : (
             <div className="tracking-reveal">
-              <p className="arriving-text">They are on the way! &#127800;</p>
+              <p className="arriving-text">The flowers are on the way! &#127800;</p>
+              <div className="delivery-photo">
+                <img src={flowerPhoto} alt="Shri holding her birthday flower" />
+              </div>
               <a href="https://wolt.com/en/tracking/YOUR_ORDER_ID" target="_blank" rel="noreferrer" className="wolt-link">
                 Open Wolt Live Tracking
               </a>
@@ -183,29 +188,26 @@ const App = () => {
             Yours,
             Krish`}
           </div>
-          <button className="next-button nick-btn" onClick={nextStage}>One Last Thing &#129365;</button>
+          <button className="next-button nick-btn" onClick={nextStage}>One Last Smile</button>
         </div>
       )}
 
       {/* STAGE 4: The Mystery Final Gift */}
       {stage === 4 && (
         <div className="stage-container">
-          <h2>Part IV: The Final Mystery &#10024;</h2>
-          <div className="photo-gallery">
-            <div className="photo-slot">
-              {/* <img src={mystery1} alt="Mystery Gift" /> */}
-              [Photo 1]
-            </div>
-            <div className="photo-slot">
-              {/* <img src={mystery2} alt="Mystery Gift" /> */}
-              [Photo 2]
-            </div>
+          <h2>Part IV: One Last Smile &#10024;</h2>
+          <div className="final-photo-frame">
+            <img src={smilePhoto} alt="Shri smiling" />
           </div>
           <p className="mystery-header">There is one more surprise...</p>
           <p className="mystery-text">
             For the final piece of the puzzle, you'll have to reach out to <strong>Nupur</strong>.
           </p>
           <p>She has the details on when the last gift will reach you.</p>
+          <p className="final-wish">
+            And no matter how chaotic life gets, smile like this always. It is still my favorite thing to see,
+            and I hope this birthday gives you a hundred more reasons to do it.
+          </p>
           <p className="sub-text">Happy Birthday, Shri. &#10084;&#65039; &#128048; &#129418;</p>
         </div>
       )}

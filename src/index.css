@@ -1,55 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap');
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-.app-container {
+body {
+  min-width: 320px;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fcf9f8;
-  font-family: 'Poppins', sans-serif;
-  padding: 20px;
 }
 
-.stage-container {
-  max-width: 600px;
-  width: 100%;
-  padding: 40px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  animation: fadeIn 1s ease-in;
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
 }
-
-h1, h2 { font-family: 'Playfair Display', serif; margin-bottom: 20px; }
-
-.photo-gallery { display: flex; gap: 10px; margin-bottom: 20px; }
-.photo-slot { 
-  flex: 1; height: 250px; background: #f4ece8; border-radius: 12px; 
-  display: flex; align-items: center; justify-content: center; overflow: hidden;
-}
-.photo-slot img { width: 100%; height: 100%; object-fit: cover; }
-
-.next-button, .action-button {
-  padding: 12px 28px; border-radius: 30px; border: none; cursor: pointer; transition: 0.3s;
-}
-
-.next-button { background: #2c2c2c; color: white; }
-.action-button { background: #009de0; color: white; font-weight: 600; margin-top: 10px; }
-
-.wolt-link { color: #009de0; text-decoration: none; font-weight: 600; border-bottom: 2px solid; }
-
-.lock-section { margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; }
-.passcode-input { padding: 10px; border-radius: 8px; border: 1px solid #ccc; text-align: center; width: 60%; }
-
-.letter-text { text-align: left; line-height: 1.8; color: #555; white-space: pre-line; }
-
-.mystery-header { font-size: 1.3rem; font-weight: 600; margin-top: 20px; }
-.mystery-text { margin: 15px 0; color: #444; }
-.sub-text { margin-top: 30px; color: #888; font-style: italic; }
-
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-@media (max-width: 480px) { .photo-gallery { flex-direction: column; } .passcode-input { width: 100%; } }
