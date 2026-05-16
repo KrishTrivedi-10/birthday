@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cute Pastel Background Gradient */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fff0f5 0%, #eef1ff 100%);
+  color: #444;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Softer, bubblier container */
+.stage-container {
+  max-width: 650px;
+  width: 100%;
+  padding: 45px 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  box-shadow: 0 15px 35px rgba(120, 156, 226, 0.15);
+  animation: bounceFadeIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  color: #5a5a5a;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  color: #777;
+  margin-bottom: 25px;
+  font-size: 1.05rem;
+}
+
+/* Photo Gallery */
+.photo-gallery {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  justify-content: center;
+}
+
+.photo-slot {
+  flex: 1;
+  height: 280px;
+  background-color: #fcf4f0;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  color: #aaa;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+}
+
+.photo-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+/* The Letter */
+.letter-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: left;
+  margin-bottom: 30px;
+  color: #555;
+  white-space: pre-line; 
+  padding: 0 15px;
+  font-weight: 400;
+}
+
+/* =========================================
+   CUTE BUTTONS (ZOOTOPIA THEME)
+========================================= */
+.next-button, .action-button {
+  border: none;
+  padding: 14px 34px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px; /* Bubbly pills */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.next-button:active, .action-button:active {
+  transform: scale(0.95);
+}
+
+.next-button:disabled, .action-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.next-button:disabled:hover, .action-button:disabled:hover {
+  transform: none;
+}
+
+/* Nick Wilde Button (Soft Orange) */
+.nick-btn {
+  background-color: #ff8e5e;
+  color: white;
+}
+.nick-btn:hover {
+  background-color: #ff753c;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 142, 94, 0.4);
+}
+
+/* Judy Hopps Button (Soft Blue/Periwinkle) */
+.judy-btn {
+  background-color: #789ce2; 
+  color: white;
+  margin-top: 15px;
+}
+.judy-btn:hover {
+  background-color: #6188d8;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(120, 156, 226, 0.4);
+}
+
+/* Wolt Reveal */
+.tracking-reveal {
+  padding: 20px 0;
+}
+
+.arriving-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ff8e5e; /* Nick orange */
+  margin-bottom: 15px;
+}
+
+.wolt-link {
+  display: inline-block;
+  color: #789ce2; /* Judy blue */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-bottom: 2px dashed #789ce2;
+  padding-bottom: 2px;
+  transition: all 0.2s ease;
+}
+
+.wolt-link:hover {
+  color: #6188d8;
+  border-bottom-color: #6188d8;
+}
+
+/* Passcode Lock System */
+.lock-section {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px dashed #eaeaea; /* Cute dashed line */
+}
+
+.lock-text {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.passcode-input {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: 2px solid #ffe1d4; /* Soft peach border */
+  border-radius: 20px;
+  width: 55%;
+  max-width: 250px;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  transition: all 0.3s;
+  color: #555;
+  font-weight: 500;
+}
+
+.passcode-input:focus {
+  border-color: #ff8e5e;
+  box-shadow: 0 0 10px rgba(255, 142, 94, 0.2);
+}
+
+.unlock-btn {
+  margin-left: 10px;
+  padding: 12px 26px;
+}
+
+.error-text {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+/* Envelope unlock reveal */
+.envelope-reveal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(255, 248, 249, 0.84);
+  backdrop-filter: blur(4px);
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 600;
+  animation: softAppear 0.35s ease;
+  pointer-events: none;
+}
+
+.envelope-reveal p {
+  margin-top: 14px;
+}
+
+.envelope {
+  position: relative;
+  width: 190px;
+  height: 125px;
+  margin: 0 auto;
+  perspective: 700px;
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 22px 0 0;
+  background: #ffd8ca;
+  border-radius: 10px;
+  box-shadow: 0 14px 24px rgba(255, 142, 94, 0.16);
+}
+
+.letter-peek {
+  position: absolute;
+  left: 34px;
+  bottom: 30px;
+  z-index: 2;
+  width: 122px;
+  height: 82px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 18px;
+  background: #fffdfb;
+  border: 2px solid #ffe6dc;
+  border-radius: 6px;
+  color: #ff8e5e;
+  font-family: 'Playfair Display', serif;
+  transform: translateY(30px);
+  animation: letterRise 1.15s 0.25s ease forwards;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  z-index: 4;
+  width: 100%;
+  height: 72px;
+  background: #ffb49c;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  animation: flapOpen 1.15s ease-in-out forwards;
+}
+
+.envelope-front {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  height: 103px;
+  background:
+    linear-gradient(145deg, transparent 49%, #ffc7b3 50%) left bottom / 50% 100% no-repeat,
+    linear-gradient(215deg, transparent 49%, #ffc7b3 50%) right bottom / 50% 100% no-repeat,
+    linear-gradient(0deg, #ffcfbf, #ffcfbf);
+  border-radius: 0 0 10px 10px;
+}
+
+/* Memory Lane */
+.memory-intro {
+  margin-bottom: 26px;
+  color: #777;
+}
+
+.memory-lane {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto 32px;
+  padding-left: 34px;
+  text-align: left;
+}
+
+.memory-lane::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, #ffb49c, #789ce2);
+  border-radius: 999px;
+}
+
+.memory-moment {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.memory-moment:last-child {
+  margin-bottom: 0;
+}
+
+.memory-dot {
+  position: absolute;
+  top: 0.35rem;
+  left: -33px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 4px solid #ff8e5e;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(255, 142, 94, 0.12);
+}
+
+.memory-moment h3 {
+  margin-bottom: 6px;
+  color: #5a5a5a;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.18rem;
+}
+
+.memory-moment p {
+  color: #666;
+  line-height: 1.65;
+}
+
+/* Mystery Final Stage */
+.mystery-header {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 20px;
+  color: #5a5a5a;
+}
+
+.mystery-text {
+  font-size: 1.1rem;
+  margin: 15px 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+.sub-text {
+  font-size: 0.95rem;
+  color: #999;
+  margin-top: 30px;
+  font-style: italic;
+}
+
+/* Cute Bouncy Animation for Page Loads */
+@keyframes bounceFadeIn {
+  0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+  60% { opacity: 1; transform: translateY(-5px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes softAppear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flapOpen {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(178deg); }
+}
+
+@keyframes letterRise {
+  0% { opacity: 0.7; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(-28px); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+  .photo-gallery {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .photo-slot {
+    height: 220px;
+  }
+
+  .passcode-input {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .unlock-btn {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .letter-text {
+    font-size: 1rem;
+    padding: 0;
+  }
+
+  .memory-lane {
+    padding-left: 28px;
+  }
+
+  .memory-dot {
+    left: -29px;
+  }
+
+  .envelope {
+    width: 170px;
+    height: 116px;
+  }
+
+  .letter-peek {
+    left: 29px;
+    width: 112px;
+  }
+}
